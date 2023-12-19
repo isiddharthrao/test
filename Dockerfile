@@ -5,7 +5,10 @@ RUN yum update -y && \
  yum install -y httpd
 
 # Install apache and write hello world message
-RUN echo 'Hello World! Directly from Docker image' > /var/www/html/index.html
+#RUN echo 'Hello World! Directly from Docker image' > /var/www/html/index.html
+
+#Copy index.html 
+RUN COPY index.html /var/www/html/
 
 # Configure apache
 RUN echo 'mkdir -p /var/run/httpd' >> /root/run_apache.sh && \
